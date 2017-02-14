@@ -131,6 +131,11 @@ module.exports = function (options) {
             },
             {
               loader: 'angular2-template-loader'
+            },
+            {
+              test: /\.scss$/,
+              exclude: /node_modules/,
+              loaders: ['raw-loader', 'sass-loader'] // sass-loader not scss-loader
             }
           ],
           exclude: [/\.(spec|e2e)\.ts$/]
@@ -179,7 +184,7 @@ module.exports = function (options) {
           exclude: [helpers.root('src/index.html')]
         },
 
-        /* 
+        /*
          * File loader for supporting images, for example, in CSS files.
          */
         {
@@ -189,7 +194,7 @@ module.exports = function (options) {
 
         /* File loader for supporting fonts, for example, in CSS files.
         */
-        { 
+        {
           test: /\.(eot|woff2?|svg|ttf)([\?]?.*)$/,
           use: 'file-loader'
         }
